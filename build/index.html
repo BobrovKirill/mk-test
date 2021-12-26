@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="module" src="js/app.js"> </script>
+    <link rel="stylesheet" href="styles/app.css">
+    <title>Mk-Test</title>
+  </head>
+  <body>
+    <main class="page-form">
+      <div class="page-form__container container"> 
+        <form class="page-form__form form" action="#">
+          <h3 class="form__title">Регистрация</h3>
+          <div class="form__item"> 
+            <label class="form__label" for="forEmail">E-mail</label>
+            <input class="form__input" type="text" id="forEmail" name="email">
+            <p class="form__item-error">Введите email</p>
+          </div>
+          <div class="form__item"> 
+            <label class="form__label" for="forName">Никнейм</label>
+            <input class="form__input" type="text" id="forName" name="name">
+            <p class="form__item-error">Никнейм должен содеррать 3-40 символов, начинаться с заглавной буквы, цифру, латиница</p>
+          </div>
+          <div class="form__item"> 
+            <label class="form__label" for="forPassword">Пароль</label>
+            <input class="form__input" type="text" id="forPassword" name="password">
+          </div>
+          <div class="form__info"> 
+            <div class="form__info-title">Пароль должен содержать:</div>
+            <div class="form__info-text length">от 6 до 32 символов </div>
+            <div class="form__info-text num">цифру</div>
+            <div class="form__info-text Up">заглавную и строчкую буквы</div>
+          </div>
+          <div class="form__item"> 
+            <label class="form__label" for="forPasswordConfirm">Пароль ещё раз</label>
+            <input class="form__input" type="text" id="forPasswordConfirm" name="passwordConfirm">
+            <p class="form__item-error">Введённые пароли не совпадают</p>
+          </div>
+          <div class="form__checkbox"> 
+            <input class="form__input-checkbox" type="checkbox" id="forLicenseAgreement" name="licenseAgreement">
+            <label class="form__label-checkbox" for="forLicenseAgreement">Я принимаю условия <a href="" target="_blank">Пользовательского соглашения </a></label>
+          </div>
+          <button class="form__btn btn" disabled>Зарегистрироваться</button>
+          <div class="form__close"></div>
+        </form>
+        <button class="page-form__btn btn">Регистрирация</button>
+      </div>
+    </main>
+  </body>
+</html>
