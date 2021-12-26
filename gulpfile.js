@@ -6,24 +6,16 @@ let path = {
     html: projectFolder + '/',
     css: projectFolder + '/styles/',
     js: projectFolder + '/js/',
-    img: projectFolder + '/images/',
-    fonts: projectFolder + '/fonts/',
-    json: projectFolder + '/json/',
   },
   src: {
     pug: sourceFolder + '/*.pug',
     scss: sourceFolder + '/scss/app.scss',
     js: sourceFolder + '/js/app.js',
-    img: sourceFolder + '/images/**/*.{jpg,png,svg,gif,ico}',
-    fonts: sourceFolder + '/fonts/*.ttf',
-    json: sourceFolder + '/json/*.json',
   },
   watch: {
     pug: sourceFolder + '/**/*.pug',
     scss: sourceFolder + '/**/*.scss',
     js: sourceFolder + '/js/**/*.js',
-    img: sourceFolder + '/images/**/*.{jpg,png,svg,gif,ico}',
-    json: sourceFolder + '/json/*.json',
   },
   clean: './' + projectFolder + '/',
 };
@@ -40,12 +32,10 @@ const autoprefixer = require('gulp-autoprefixer');
 const ttf2woff = require('gulp-ttf2woff');
 const ttf2woff2 = require('gulp-ttf2woff2');
 const imagemin = require('gulp-imagemin');
-//import imagemin from 'gulp-imagemin';
-//const concat = require('gulp-concat');
 
 function img() {
   return src(path.src.img)
-		.pipe(imagemin())
+    .pipe(imagemin())
     .pipe(dest(path.build.img))
     .pipe(browsersync.stream());
 }
@@ -107,16 +97,11 @@ function watchFiles() {
   gulp.watch([path.build.js]).on('change', browsersync.reload);
 }
 
-let build = gulp.series(
-  clean,
-  gulp.parallel(pugToHtml, scss2css, js, json, fonts, img)
-);
+let build = gulp.series(clean, gulp.parallel(pugToHtml, scss2css, js));
 let watch = gulp.parallel(build, watchFiles);
 
-exports.fonts = fonts;
 exports.js = js;
-exports.json = json;
-exports.img = img;
+
 exports.pugToHtml = pugToHtml;
 exports.scss2css = scss2css;
 exports.build = build;

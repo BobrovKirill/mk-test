@@ -2,7 +2,7 @@
   width: 100%;
   height: 100vh;
 
-  background-color: #e5e5e5;
+  background-color: $bgColor;
   &__container {
     position: relative;
     display: flex;
@@ -14,13 +14,14 @@
   }
   &__form {
     transition: transform 0.5s;
-		visibility: hidden;
+    opacity: 0;
+    transform: translateY(-100%);
     &.hiden {
-      visibility: hidden;
+      opacity: 0;
       transform: translateY(-100%);
     }
     &.visable {
-      visibility: visible;
+      opacity: 1;
       transform: translateY(0);
     }
   }
@@ -28,10 +29,10 @@
     position: absolute;
     top: 48%;
     left: 43%;
-    background-color: #558cb7;
+    background-color: $blueBtn;
     &.not-activ {
       pointer-events: none;
-      background-color: #007b1b;
+      background-color: $greenBtn;
     }
   }
 }
@@ -43,7 +44,7 @@
   padding: 40px;
   min-width: 481px;
   max-height: 700px;
-  background-color: #fff;
+  background-color: $white;
 
   @media (max-width: 480px) {
     min-width: 100%;
@@ -66,7 +67,7 @@
     width: 100%;
     padding: 0 15px;
     &:focus {
-      border: 1px solid #82b3d9;
+      border: 1px solid $inputFocus;
     }
     &:focus-visible {
       outline: none;
@@ -75,7 +76,7 @@
   &__item-error {
     display: none;
     position: absolute;
-    color: #9f2b11;
+    color: $errorStatus;
     font-size: 12px;
     &.error {
       display: block;
@@ -104,14 +105,14 @@
       margin-right: 4px;
     }
     &.succeed {
-      color: #007b1b;
+      color: $okStatus;
       &::before {
         content: '\2713';
         color: inherit;
       }
     }
     &.fail {
-      color: #9f2b11;
+      color: $errorStatus;
       &::before {
         content: '\2716';
         color: inherit;
@@ -150,7 +151,7 @@
       font-size: 14px;
     }
     & a {
-      color: #558cb7;
+      color: $blueBtn;
       font-size: 12px;
       margin-left: 5px;
     }
@@ -161,8 +162,8 @@
     pointer-events: none;
     &.active {
       pointer-events: auto;
-      background-color: #558cb7;
-      box-shadow: 0px 0px 10px 5px #558cb7;
+      background-color: $blueBtn;
+      box-shadow: 0px 0px 10px 5px $blueBtn;
       cursor: pointer;
     }
   }
@@ -179,7 +180,7 @@
       content: '';
       height: 3px;
       width: 75%;
-      background-color: #c4c4c4;
+      background-color: $closeBtn;
       transform: rotate(-45deg);
       top: 0;
     }
@@ -188,7 +189,7 @@
       content: '';
       height: 3px;
       width: 75%;
-      background-color: #c4c4c4;
+      background-color: $closeBtn;
       transform: rotate(45deg);
       bottom: 0;
     }
