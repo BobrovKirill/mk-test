@@ -91,7 +91,6 @@ function watchFiles() {
   gulp.watch([path.watch.pug], pugToHtml);
   gulp.watch([path.watch.scss], scss2css);
   gulp.watch([path.watch.js], js);
-  gulp.watch([path.watch.json], json);
   gulp.watch([path.build.html]).on('change', browsersync.reload);
   gulp.watch([path.build.css]).on('change', browsersync.reload);
   gulp.watch([path.build.js]).on('change', browsersync.reload);
