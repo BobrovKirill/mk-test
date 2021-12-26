@@ -88,7 +88,6 @@ window.onload = function () {
 
   closeFormButton.addEventListener('click', function () {
     form.classList.remove('visable');
-    form.classList.add('hiden');
     form.reset();
     document.querySelectorAll('.form__info-text').forEach((e) => {
       e.classList.remove('succeed');
@@ -97,7 +96,6 @@ window.onload = function () {
   });
   openFormButton.addEventListener('click', function () {
     form.classList.add('visable');
-    form.classList.remove('hiden');
   });
 
   form.addEventListener('submit', sendForm);
@@ -110,7 +108,6 @@ window.onload = function () {
     console.log(formDataJson);
 
     form.classList.remove('visable');
-    form.classList.add('hiden');
 
     form.reset();
 

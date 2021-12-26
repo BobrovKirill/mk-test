@@ -99,27 +99,19 @@ h6 {
     -webkit-transform: translateY(-100%);
         -ms-transform: translateY(-100%);
             transform: translateY(-100%); }
-    .page-form__form.hiden {
-      opacity: 0;
-      -webkit-transform: translateY(-100%);
-          -ms-transform: translateY(-100%);
-              transform: translateY(-100%); }
     .page-form__form.visable {
       opacity: 1;
       -webkit-transform: translateY(0);
           -ms-transform: translateY(0);
               transform: translateY(0); }
   .page-form__btn {
-    position: absolute;
-    top: 48%;
-    left: 43%;
     background-color: #558cb7; }
     .page-form__btn.not-activ {
       pointer-events: none;
       background-color: #007b1b; }
 
 .form {
-  position: relative;
+  position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

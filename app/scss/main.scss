@@ -16,19 +16,12 @@
     transition: transform 0.5s;
     opacity: 0;
     transform: translateY(-100%);
-    &.hiden {
-      opacity: 0;
-      transform: translateY(-100%);
-    }
     &.visable {
       opacity: 1;
       transform: translateY(0);
     }
   }
   &__btn {
-    position: absolute;
-    top: 48%;
-    left: 43%;
     background-color: $blueBtn;
     &.not-activ {
       pointer-events: none;
@@ -37,7 +30,7 @@
   }
 }
 .form {
-  position: relative;
+  position: absolute;
   display: flex;
   z-index: 10;
   flex-direction: column;
