@@ -1,0 +1,32 @@
+main.page-form
+	.page-form__container.container 
+		form(action="#").page-form__form.form
+			h3.form__title Регистрация
+			.form__item 
+				label(for="forEmail").form__label E-mail
+				input(type="text" id="forEmail" name="email").form__input
+				p.form__item-error Введите email
+			.form__item 
+				label(for="forName").form__label Никнейм
+				input(type="text" id="forName" name="name").form__input
+				p.form__item-error Никнейм должен содеррать 3-40 символов, начинаться с заглавной буквы, цифру, латиница
+			.form__item 
+				label(for="forPassword").form__label Пароль
+				input(type="text" id="forPassword" name="password").form__input
+			.form__info 
+				.form__info-title Пароль должен содержать:
+				.form__info-text.length от 6 до 32 символов 
+				.form__info-text.num цифру
+				.form__info-text.Up заглавную и строчкую буквы
+			.form__item 
+				label(for="forPasswordConfirm").form__label Пароль ещё раз
+				input(type="text" id="forPasswordConfirm" name="passwordConfirm").form__input 
+				p.form__item-error Введённые пароли не совпадают
+			.form__checkbox 
+				input(type="checkbox" id="forLicenseAgreement" name="licenseAgreement").form__input-checkbox
+				label(for="forLicenseAgreement").form__label-checkbox Я принимаю условия 
+					a(href="" target="_blank") Пользовательского соглашения 
+			button(disabled).form__btn.btn Зарегистрироваться
+			.form__close
+		button.page-form__btn.btn Регистрирация
+			
