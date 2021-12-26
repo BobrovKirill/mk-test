@@ -65,7 +65,8 @@ h6 {
   border-radius: 3px;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
-  transition: all 0.3s; }
+  transition: all 0.3s;
+  cursor: pointer; }
 
 .container {
   max-width: 1270px;
@@ -242,7 +243,8 @@ h6 {
     width: 32px;
     height: 32px;
     top: 40px;
-    right: 41px; }
+    right: 41px;
+    cursor: pointer; }
     .form__close::before {
       position: absolute;
       display: block;
