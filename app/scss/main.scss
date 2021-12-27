@@ -13,22 +13,19 @@
     height: 100%;
   }
   &__form {
-    transition: transform 0.5s;
-    opacity: 0;
-    transform: translateY(-100%);
-    &.visable {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
   &__btn {
+    position: absolute;
     background-color: $blueBtn;
     &.not-activ {
       pointer-events: none;
       background-color: $greenBtn;
     }
   }
+  &__form2 {
+  }
 }
+
 .form {
   position: absolute;
   display: flex;
@@ -38,6 +35,14 @@
   min-width: 481px;
   max-height: 700px;
   background-color: $white;
+
+  transition: transform 0.5s;
+  opacity: 0;
+  transform: scale(0) translateY(-100%);
+  &.visable {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 
   @media (max-width: 480px) {
     min-width: 100%;
@@ -114,6 +119,11 @@
   }
   &__checkbox {
     margin-top: 38px;
+    display: flex;
+    flex-direction: column;
+  }
+  &__checkbox-title {
+    margin-bottom: 10px;
   }
   &__input-checkbox {
     display: none;
@@ -121,12 +131,16 @@
   &__input-checkbox:checked + .form__label-checkbox::after {
     display: block;
   }
+
   &__label-checkbox {
     font-size: 12px;
     position: relative;
     display: flex;
     align-items: center;
     cursor: pointer;
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
     &::before {
       content: '';
       width: 16px;
@@ -167,7 +181,7 @@
     height: 32px;
     top: 40px;
     right: 41px;
-		cursor: pointer;
+    cursor: pointer;
     &::before {
       position: absolute;
       display: block;
@@ -186,6 +200,27 @@
       background-color: $closeBtn;
       transform: rotate(45deg);
       bottom: 0;
+    }
+  }
+  &__radio {
+    margin: 30px 0;
+    display: flex;
+    justify-content: space-around;
+  }
+  &__label-radio {
+  }
+  &__input-radio {
+  }
+  &__select {
+    margin-bottom: 45px;
+  }
+  &__select-title {
+    margin-bottom: 10px;
+  }
+  &__textarea {
+    width: 100%;
+    textarea {
+      width: 100%;
     }
   }
 }

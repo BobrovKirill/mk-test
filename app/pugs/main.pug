@@ -26,7 +26,32 @@ main.page-form
 				input(type="checkbox" id="forLicenseAgreement" name="licenseAgreement").form__input-checkbox
 				label(for="forLicenseAgreement").form__label-checkbox Я принимаю условия 
 					a(href="" target="_blank") Пользовательского соглашения 
-			button(disabled).form__btn.btn Зарегистрироваться
+			button(disabled).form__btn.btn Далее
+			.form__close
+		form(action="#").page-form__form2.form
+			h3.form__title Шаг2
+			.form__radio
+				label.form__label-radio Мужской
+					input(type="radio" name="sex" value="man").form__input-radio
+				label.form__label-radio Женский
+					input(type="radio" name="sex" value="woman").form__input-radio
+			.form__select 
+				h6.form__select-title Выберете Ваше образование
+				select(name="education") 
+					option(value="higher education" selected) Высшее
+					option(value="secondary special") Средне специальное
+					option(value="school") Школа
+			.form__textarea 
+				textarea(name="about", rows="5") 
+			.form__checkbox 
+				h6.form__checkbox-title  Выберете категорию 
+				input(type="checkbox" name="politics" id="forPolitics").form__input-checkbox
+				label(for="forPolitics").form__label-checkbox Политика
+				input(type="checkbox" name="economy" id="forEconomy").form__input-checkbox 
+				label(for="forEconomy").form__label-checkbox Экономика
+				input(type="checkbox" name="incidents" id="forIncidents").form__input-checkbox 
+				label(for="forIncidents").form__label-checkbox Происшествия
+			button.form__btn.btn.active Зарегистрироваться 
 			.form__close
 		button.page-form__btn.btn Регистрация
 			

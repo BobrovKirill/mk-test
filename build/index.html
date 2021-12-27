@@ -42,7 +42,40 @@
             <input class="form__input-checkbox" type="checkbox" id="forLicenseAgreement" name="licenseAgreement">
             <label class="form__label-checkbox" for="forLicenseAgreement">Я принимаю условия <a href="" target="_blank">Пользовательского соглашения </a></label>
           </div>
-          <button class="form__btn btn" disabled>Зарегистрироваться</button>
+          <button class="form__btn btn" disabled>Далее</button>
+          <div class="form__close"></div>
+        </form>
+        <form class="page-form__form2 form" action="#">
+          <h3 class="form__title">Шаг2</h3>
+          <div class="form__radio">
+            <label class="form__label-radio">Мужской
+              <input class="form__input-radio" type="radio" name="sex" value="man">
+            </label>
+            <label class="form__label-radio">Женский
+              <input class="form__input-radio" type="radio" name="sex" value="woman">
+            </label>
+          </div>
+          <div class="form__select"> 
+            <h6 class="form__select-title">Выберете Ваше образование</h6>
+            <select name="education"> 
+              <option value="higher education" selected>Высшее</option>
+              <option value="secondary special">Средне специальное</option>
+              <option value="school">Школа</option>
+            </select>
+          </div>
+          <div class="form__textarea"> 
+            <textarea name="about" rows="5"> </textarea>
+          </div>
+          <div class="form__checkbox"> 
+            <h6 class="form__checkbox-title"> Выберете категорию </h6>
+            <input class="form__input-checkbox" type="checkbox" name="politics" id="forPolitics">
+            <label class="form__label-checkbox" for="forPolitics">Политика</label>
+            <input class="form__input-checkbox" type="checkbox" name="economy" id="forEconomy">
+            <label class="form__label-checkbox" for="forEconomy">Экономика</label>
+            <input class="form__input-checkbox" type="checkbox" name="incidents" id="forIncidents">
+            <label class="form__label-checkbox" for="forIncidents">Происшествия</label>
+          </div>
+          <button class="form__btn btn active">Зарегистрироваться </button>
           <div class="form__close"></div>
         </form>
         <button class="page-form__btn btn">Регистрация</button>

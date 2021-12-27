@@ -1,11 +1,14 @@
 window.onload = function () {
   const requiredList = document.querySelectorAll('.form__input');
-  const form = document.querySelector('.form');
-  const closeFormButton = document.querySelector('.form__close');
+  const form = document.querySelector('.page-form__form');
+  const form2 = document.querySelector('.page-form__form2');
+  const formList = document.querySelectorAll('form');
   const openFormButton = document.querySelector('.page-form__btn');
-  const formButton = document.querySelector('.form__btn');
+  const formButton = form.querySelector('.form__btn');
   const inputCheckbox = document.querySelector('.form__input-checkbox');
+  const formDatas = [];
 
+  //CONTROL VALIDATE FORM
   requiredList.forEach((el) => {
     el.addEventListener('input', ({ target }) => {
       const input = target;
@@ -14,10 +17,11 @@ window.onload = function () {
       chectButtonForm();
     });
   });
+  //CONTROL CHECKBOX
   document
     .querySelector('.form__input-checkbox')
     .addEventListener('change', chectButtonForm);
-
+  // CONTROL OPEN FORM BUTTON
   function chectButtonForm() {
     if (
       (document.querySelectorAll('.done').length ===
@@ -31,7 +35,7 @@ window.onload = function () {
       formButton.setAttribute('disabled', 'disabled');
     }
   }
-
+  //VALIDATE INPUTS
   function chectInput(input, attribute, formItem) {
     if (isValidate(input.value, attribute)) {
       input.classList.add('done');
@@ -47,7 +51,7 @@ window.onload = function () {
         : null;
     }
   }
-
+  //VALIDATE
   function isValidate(value, attribute) {
     if (attribute === 'email') {
       return /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/.test(
@@ -75,7 +79,7 @@ window.onload = function () {
     controlPasswordValidate(document.querySelector('.num'), numberTest);
     controlPasswordValidate(document.querySelector('.Up'), uppercaseTest);
   }
-
+  //CONTROL PASSWORD VALIDE ITEMS
   function controlPasswordValidate(item, confirm) {
     if (confirm) {
       item.classList.remove('fail');
@@ -85,33 +89,50 @@ window.onload = function () {
       item.classList.add('fail');
     }
   }
-
-  closeFormButton.addEventListener('click', function () {
-    form.classList.remove('visable');
-    form.reset();
-    document.querySelectorAll('.form__info-text').forEach((e) => {
-      e.classList.remove('succeed');
-      e.classList.remove('fail');
-    });
-  });
-  openFormButton.addEventListener('click', function () {
+  // OPEN FORM BUTTON
+  openFormButton.addEventListener('click', function (e) {
     form.classList.add('visable');
   });
-
-  form.addEventListener('submit', sendForm);
-
-  function sendForm(e) {
-    e.preventDefault();
-
-    const formData = new FormData(form);
-    const formDataJson = JSON.stringify(Object.fromEntries(formData));
-    console.log(formDataJson);
-
-    form.classList.remove('visable');
-
-    form.reset();
-
-    openFormButton.classList.add('not-activ');
-    openFormButton.setAttribute('disabled', 'disabled');
-  }
+	//CLEAR VALIDATE PASSWORD MARKERS
+	function clearValidatePasswordItems () {
+		document.querySelectorAll('.form__info-text').forEach((e) => {
+			e.classList.remove('succeed');
+			e.classList.remove('fail');
+		});
+	}
+  // CLOSE FORMS BUTTONS
+  document.querySelectorAll('.form__close').forEach((buttonClose) => {
+    buttonClose.addEventListener('click', function () {
+      if (buttonClose.closest('.page-form__form')) {
+        form.classList.remove('visable');
+        form.reset();
+        clearValidatePasswordItems()
+      } else if (buttonClose.closest('.page-form__form2')) {
+        form2.classList.remove('visable');
+        form2.reset();
+				formDatas.length = 0
+      }
+    });
+  });
+	
+  // SUBMIT FOR FORMS
+  formList.forEach((el) => {
+    el.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const formData = new FormData(el);
+      const formDataJson = Object.fromEntries(formData);
+      formDatas.push(formDataJson);
+      el.classList.remove('visable');
+      el.reset();
+      if (el.classList.contains('page-form__form')) {
+        form2.classList.add('visable');
+				clearValidatePasswordItems()
+      } else if (el.classList.contains('page-form__form2')) {
+        console.log(JSON.stringify(formDatas));
+        el.classList.remove('visable');
+        openFormButton.classList.add('not-activ');
+        openFormButton.setAttribute('disabled', 'disabled');
+      }
+    });
+  });
 };
