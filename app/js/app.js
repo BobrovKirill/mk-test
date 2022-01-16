@@ -1,4 +1,5 @@
 window.onload = function () {
+	console.log('test git main')
   const requiredList = document.querySelectorAll('.form__input');
   const form = document.querySelector('.page-form__form');
   const form2 = document.querySelector('.page-form__form2');
