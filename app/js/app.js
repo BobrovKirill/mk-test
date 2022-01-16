@@ -58,7 +58,7 @@ window.onload = function () {
         value
       );
     } else if (attribute === 'name') {
-      return /^[A-Z]+([a-zA-Z]{1,40})([0-9]{1,40})_{1,40}/.test(value);
+      return /^[a-zA-Z]+(_\d|\d_)+.*/.test(value);
     } else if (attribute === 'password') {
       passwordValidate(value);
       return /(?=^.{6,32}$)((?=.*\d)|(?=.*\W+))(?=.*[A-Z])(?=.*[a-z]).*$/.test(
@@ -93,28 +93,28 @@ window.onload = function () {
   openFormButton.addEventListener('click', function (e) {
     form.classList.add('visable');
   });
-	//CLEAR VALIDATE PASSWORD MARKERS
-	function clearValidatePasswordItems () {
-		document.querySelectorAll('.form__info-text').forEach((e) => {
-			e.classList.remove('succeed');
-			e.classList.remove('fail');
-		});
-	}
+  //CLEAR VALIDATE PASSWORD MARKERS
+  function clearValidatePasswordItems() {
+    document.querySelectorAll('.form__info-text').forEach((e) => {
+      e.classList.remove('succeed');
+      e.classList.remove('fail');
+    });
+  }
   // CLOSE FORMS BUTTONS
   document.querySelectorAll('.form__close').forEach((buttonClose) => {
     buttonClose.addEventListener('click', function () {
       if (buttonClose.closest('.page-form__form')) {
         form.classList.remove('visable');
         form.reset();
-        clearValidatePasswordItems()
+        clearValidatePasswordItems();
       } else if (buttonClose.closest('.page-form__form2')) {
         form2.classList.remove('visable');
         form2.reset();
-				formDatas.length = 0
+        formDatas.length = 0;
       }
     });
   });
-	
+
   // SUBMIT FOR FORMS
   formList.forEach((el) => {
     el.addEventListener('submit', (e) => {
@@ -126,7 +126,7 @@ window.onload = function () {
       el.reset();
       if (el.classList.contains('page-form__form')) {
         form2.classList.add('visable');
-				clearValidatePasswordItems()
+        clearValidatePasswordItems();
       } else if (el.classList.contains('page-form__form2')) {
         console.log(JSON.stringify(formDatas));
         el.classList.remove('visable');
